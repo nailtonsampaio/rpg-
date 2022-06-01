@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <conio.h>
+#include <stdlib.h>
+#include<time.h>
 
 
-
+ 
 int pontos_disponiveis=15;
 int res=0;
+int dado;
 
 
 
@@ -228,6 +232,7 @@ void menu_principal(){
 
 int main(int argc, char** argv)
 {
+srand( time(NULL) );
 strcpy( armadura[0].nome_armadura, "Armadura acolchoada");
 strcpy( armadura[1].nome_armadura, "Corselete de couro");
 strcpy( armadura[2].nome_armadura, "Couro batido");
@@ -241,7 +246,9 @@ armadura[0].id_armadura=0;
 armadura[1].id_armadura=1;
 armadura[2].id_armadura=2;
     menu_principal();
+	
 	return 0;
+	
 }
 
 void set_adversarios(){
@@ -271,7 +278,48 @@ strcpy( personagem[i].nome, "6");
 
 
 void combate(){
+	int c=2;
+	int dano_real;
+	char escolha;
+	if (personagem[1].agilidade>personagem[0].agilidade){
+		//adversario joga primeiro 
+   
+    
+	}
+	else{
+		
+    //jogador joga primeiro
+    printf("Escolha umas das tres acoes\n\n");
+	printf("A- Atacar\nB- Defender\nC- Pocao\n\n");
+	printf("Digite a sua resposta:");
+	fflush(stdin); 
+	scanf("%c", &escolha);
 	
+	switch(escolha)
+	{
+		case 'a':
+		case 'A':
+			//atacar
+			arma[0].dano=dado=1+( rand() % 12 )+c+personagem[0].forca*1,5;
+			
+			break;
+			
+		case 'b':
+		case 'B':
+			//defender
+			break;
+			
+		case 'c':
+		case 'C':
+		//usar pocao
+		
+			break;
+
+		default:
+			printf("Valor invalido");
+		
+	}
+	}
 }
 
 void premiacao(){
@@ -281,4 +329,3 @@ void premiacao(){
 void vitoria(){
 	
 }
-
